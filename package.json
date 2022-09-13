@@ -1,0 +1,15 @@
+{
+  "type": "module",
+  "name": "hnsd.js",
+  "version": "0.0.1",
+  "description": "HNSD binries wrapped for JS usage",
+  "main": "index.js",
+  "repository": "https://github.com/angrymouse/hnsd.js",
+  "author": "Angrymouse <nik@hns.is>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "bns": "^0.15.0",
+    "get-port": "^6.1.2"
+  }
+}
