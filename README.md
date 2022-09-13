@@ -3,7 +3,7 @@
 Want to use handshake protocol in your app, but don't want user to install any software besides your? Now you can builtin HNSD binaries with JS interface to your project easily!
 As easy as that:
 ```js
-import HNSDResolver from "./index.js";
+import HNSDResolver from "hnsd.js";
 let resolver = new HNSDResolver();
 await resolver.launch();
 resolver.height // Sync height of your HNSD
