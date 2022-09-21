@@ -72,7 +72,10 @@ export default class HNSDResolver extends EventEmitter {
 			});
 
 			let synccheck = setInterval(() => {
-				if (classThis.height - classThis.lastCheckHeight < 5) {
+				if (
+					classThis.height - classThis.lastCheckHeight < 5 &&
+					classThis.lastCheckHeight != 0
+				) {
 					classThis.synced = true;
 					classThis.emit("finishedSync");
 					clearInterval(synccheck);
