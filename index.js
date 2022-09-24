@@ -1,7 +1,7 @@
 import * as os from "os";
 import * as path from "path";
 import getPort from "get-port";
-import { dns } from "bns";
+import { dns } from "bns-plus";
 import * as cp from "child_process";
 import EventEmitter from "events";
 import { fileURLToPath } from "url";

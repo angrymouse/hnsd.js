@@ -9,7 +9,7 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "bns": "^0.15.0",
+    "bns-plus": "^0.15.2",
     "get-port": "^6.1.2"
   }
 }

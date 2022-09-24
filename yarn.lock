@@ -30,10 +30,10 @@ binet@~0.3.6:
     bs32 "~0.1.5"
     bsert "~0.0.10"
 
-bns@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/bns/-/bns-0.15.0.tgz#147d0f20702c699af5ced0199c8691a4c1d43ffb"
-  integrity sha512-iJWQVE399vQzPfhalFMJGEQ7k5Ot2D6Mz8dkoPeLO8huWAMOiJNJ1tHzOu5j+ZyNNew6ITgG/LsSyaRPxvkXuw==
+bns-plus@^0.15.2:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/bns-plus/-/bns-plus-0.15.2.tgz#42c5f5329ca295424fbda25aee77410140a7dd93"
+  integrity sha512-WTKqiBowPb+alo7/bFs1AkzphT+IDRCkq6msPztFrEanNRbFooXG+XtjF5iPXItbcN5me717jGVnuD8kAfn+NQ==
   dependencies:
     bcrypto "~5.4.0"
     bfile "~0.2.2"
