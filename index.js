@@ -5,6 +5,7 @@ import { dns } from "bns-plus";
 import * as cp from "child_process";
 import EventEmitter from "events";
 import { fileURLToPath } from "url";
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 let executable = (
 	{
@@ -12,7 +13,7 @@ let executable = (
 			return path.join(__dirname, "binaries", "win32", "hnsd.exe");
 		},
 		linux: () => {
-			return path.join(__dirname, "binaries", "linux", "hnsd");
+			return path.join(__dirname, "binaries", "linux", "bin", "hnsd");
 		},
 		darwin: () => {
 			return path.join(__dirname, "binaries", "darwin", "MacOS", "hnsd");
@@ -50,8 +51,8 @@ export default class HNSDResolver extends EventEmitter {
 			];
 			this.recursivePort = recursivePort;
 			this.authoritativePort = authoritativePort;
-			this.recursiveResolver.setServers(["127.0.0.1:" + recursivePort]);
-			this.rootResolver.setServers(["127.0.0.1:" + authoritativePort]);
+			this.recursiveResolver.setServers(["66.29.147.23:6151"]);
+			this.rootResolver.setServers(["66.29.147.23:6150"]);
 			let hnsd = cp.spawn(executable, [
 				`--ns-host`,
 				`127.0.0.1:${authoritativePort}`,
@@ -59,6 +60,9 @@ export default class HNSDResolver extends EventEmitter {
 				`127.0.0.1:${recursivePort}`,
 			]);
 			hnsd.stdout.on("data", (data) => {
+				if (process.env.HNSDJS_DEBUG) {
+					process.stdout.write(data);
+				}
 				let newHeightRegEx = /^chain \((\d+)\)/gm;
 				let capturer = newHeightRegEx.exec(data.toString());
 				if (!capturer || !capturer[1]) {
@@ -77,6 +81,8 @@ export default class HNSDResolver extends EventEmitter {
 					classThis.lastCheckHeight != 0
 				) {
 					classThis.synced = true;
+					this.recursiveResolver.setServers(["127.0.0.1:" + recursivePort]);
+					this.rootResolver.setServers(["127.0.0.1:" + authoritativePort]);
 					classThis.emit("finishedSync");
 					clearInterval(synccheck);
 					resolve();
