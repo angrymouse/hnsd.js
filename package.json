@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "hnsd.js",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "HNSD binries wrapped for JS usage",
   "main": "index.js",
   "repository": "https://github.com/angrymouse/hnsd.js",
